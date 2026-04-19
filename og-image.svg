@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Shibi S T social preview image">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0b1020" />
+      <stop offset="1" stop-color="#111d35" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#97bfff" />
+      <stop offset="1" stop-color="#6ea7ff" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1040" cy="80" r="220" fill="#3b82f61a" />
+  <circle cx="120" cy="560" r="220" fill="#60a5fa12" />
+  <text x="90" y="240" font-family="Segoe UI, Inter, sans-serif" font-size="76" font-weight="700" fill="#e5edff">Shibi S T</text>
+  <text x="90" y="320" font-family="Segoe UI, Inter, sans-serif" font-size="38" fill="#b7c5df">Mechanical Design Engineer</text>
+  <text x="90" y="382" font-family="Segoe UI, Inter, sans-serif" font-size="30" fill="#9fb3d8">CAD | Product Design | FEA</text>
+  <rect x="90" y="450" width="360" height="58" rx="29" fill="url(#accent)" />
+  <text x="130" y="488" font-family="Segoe UI, Inter, sans-serif" font-size="28" font-weight="600" fill="#051022">shibist.me</text>
+</svg>
