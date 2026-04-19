@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Shibi ST monogram">
-  <rect width="64" height="64" rx="14" fill="#0f172a" />
-  <path d="M16 20c0-4 3-7 9-7h13v7H25c-1 0-2 1-2 2s1 2 2 2h8c6 0 10 4 10 9 0 6-4 10-12 10H18v-7h13c3 0 4-1 4-3 0-1-1-2-3-2h-7c-7 0-9-5-9-9z" fill="#c7ddff" />
-  <path d="M44 13h6v38h-8V26l-6 2v-6z" fill="#7fb0ff" />
-</svg>
