@@ -34,13 +34,6 @@
     />
     <meta name="twitter:image" content="https://shibist.me/og-image.svg" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#0b0d12" />
@@ -78,14 +71,12 @@
     <style>
       :root {
         color-scheme: dark;
-        --bg: #0a0a0a;
-        --surface: #121212;
-        --surface-soft: rgba(18, 18, 18, 0.65);
-        --text: #f4f6fb;
-        --muted: #a3adbe;
-        --line: #222831;
-        --accent-a: #89aacc;
-        --accent-b: #4e85bf;
+        --bg: #0b0d12;
+        --surface: #121722;
+        --text: #edf2ff;
+        --muted: #a8b3c7;
+        --line: #273247;
+        --accent: #83b4ff;
       }
 
       * {
@@ -94,386 +85,200 @@
 
       body {
         margin: 0;
-        background: var(--bg);
+        background:
+          radial-gradient(1200px 500px at 10% -5%, rgba(122, 168, 255, 0.18), transparent 60%),
+          radial-gradient(800px 400px at 90% -10%, rgba(112, 92, 255, 0.12), transparent 65%),
+          var(--bg);
         color: var(--text);
-        font: 16px/1.65 "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-      }
-
-      a {
-        color: var(--text);
-      }
-
-      .bg-orb {
-        position: fixed;
-        pointer-events: none;
-        inset: auto;
-        filter: blur(90px);
-        z-index: -1;
-      }
-
-      .bg-orb.one {
-        width: 380px;
-        height: 380px;
-        left: -110px;
-        top: -90px;
-        background: rgba(137, 170, 204, 0.2);
-      }
-
-      .bg-orb.two {
-        width: 340px;
-        height: 340px;
-        right: -90px;
-        top: 20%;
-        background: rgba(78, 133, 191, 0.14);
+        font: 16px/1.6 "Segoe UI", Inter, system-ui, -apple-system, Roboto, sans-serif;
       }
 
       .wrap {
-        max-width: 1200px;
+        max-width: 980px;
         margin: 0 auto;
-        padding: 26px 22px 72px;
+        padding: 28px 18px 64px;
       }
 
-      .nav-shell {
+      .topbar {
         display: flex;
-        justify-content: center;
-        margin-bottom: 34px;
-      }
-
-      .nav {
-        display: inline-flex;
+        justify-content: space-between;
         align-items: center;
-        gap: 6px;
-        padding: 8px;
-        border: 1px solid #ffffff1a;
-        border-radius: 999px;
-        background: var(--surface-soft);
-        backdrop-filter: blur(8px);
+        margin-bottom: 48px;
       }
 
-      .nav a {
+      .brand {
+        font-size: 14px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .site-link {
+        color: var(--text);
         text-decoration: none;
+        border: 1px solid var(--line);
         border-radius: 999px;
         padding: 8px 14px;
         font-size: 14px;
-        color: var(--muted);
-        border: 1px solid transparent;
-        transition: all 180ms ease;
       }
 
-      .nav a:hover {
-        color: var(--text);
-        border-color: #ffffff22;
-        background: #ffffff08;
-      }
-
-      .nav a.active {
-        color: var(--text);
-        background: #ffffff0f;
-      }
-
-      .section {
-        border: 1px solid var(--line);
-        border-radius: 28px;
-        background: var(--surface-soft);
-        backdrop-filter: blur(10px);
-        padding: 28px;
-        margin-bottom: 18px;
+      .hero {
+        margin-bottom: 44px;
       }
 
       h1 {
-        margin: 0 0 16px;
-        font-size: clamp(2.4rem, 5.9vw, 4.4rem);
-        line-height: 0.98;
-        font-weight: 400;
-        letter-spacing: -0.02em;
+        margin: 0 0 10px;
+        font-size: clamp(2.1rem, 6vw, 3.5rem);
+        line-height: 1.05;
       }
 
-      .hero-grid {
+      .subtitle {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      .grid {
         display: grid;
-        grid-template-columns: 1.25fr 1fr;
+        grid-template-columns: 1.2fr 1fr;
         gap: 22px;
       }
 
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.28em;
-        color: var(--muted);
-        margin-bottom: 16px;
-      }
-
-      .eyebrow::before {
-        content: "";
-        width: 26px;
-        height: 1px;
-        background: #3b4658;
-      }
-
-      .font-display {
-        font-family: "Instrument Serif", serif;
-        font-style: italic;
-      }
-
-      .lead {
-        margin: 0;
-        color: var(--muted);
-        font-size: clamp(1rem, 2vw, 1.08rem);
-      }
-
-      .intro p {
-        margin: 0 0 14px;
-        color: var(--muted);
-      }
-
-      .meta {
-        display: grid;
-        gap: 14px;
-      }
-
-      .meta-card {
-        background: #0f131b;
+      .card {
+        background: color-mix(in srgb, var(--surface), transparent 6%);
         border: 1px solid var(--line);
-        border-radius: 20px;
-        padding: 18px;
+        border-radius: 16px;
+        padding: 22px;
       }
 
       h2 {
         margin: 0 0 12px;
-        font-size: clamp(1.8rem, 4vw, 2.5rem);
-        font-weight: 300;
+        font-size: 1.2rem;
       }
 
-      h3 {
-        margin: 0 0 10px;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.13em;
-        font-weight: 500;
+      p {
+        margin: 0 0 12px;
         color: var(--muted);
       }
 
-      .meta-card p,
-      .meta-card a {
+      ul {
         margin: 0;
+        padding-left: 18px;
         color: var(--muted);
-        text-decoration: none;
       }
 
-      .meta-card a:hover {
-        color: var(--text);
-        text-decoration: underline;
-      }
-
-      .stack {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .achievement,
-      .cert {
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        background: #0f131b;
-        padding: 15px;
-      }
-
-      .achievement {
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
-      }
-
-      .badge {
-        width: 32px;
-        height: 32px;
-        flex: 0 0 32px;
-        border-radius: 999px;
-        display: grid;
-        place-items: center;
-        font-size: 14px;
-        color: var(--muted);
-        background: #1a212c;
-        border: 1px solid #2c3748;
-      }
-
-      .achievement p,
-      .cert p {
-        margin: 0;
-        color: var(--text);
-        font-size: 15px;
-      }
-
-      .cert-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-      }
-
-      .cta {
-        display: flex;
-        justify-content: center;
+      li + li {
         margin-top: 8px;
       }
 
-      .cta a {
-        display: inline-flex;
-        align-items: center;
+      .actions {
+        display: flex;
         gap: 10px;
-        padding: 11px 18px;
-        border-radius: 999px;
-        color: var(--text);
-        text-decoration: none;
-        border: 1px solid var(--line);
-        background: #ffffff05;
+        flex-wrap: wrap;
+        margin-top: 16px;
       }
 
-      .cta a::after {
-        content: "↗";
-        font-size: 12px;
+      .btn {
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 999px;
+        padding: 10px 14px;
+        font-size: 14px;
+      }
+
+      .btn.primary {
+        color: #031028;
+        background: linear-gradient(90deg, #90bcff, #6ca0ff);
+      }
+
+      .btn.ghost {
+        color: var(--text);
+        border: 1px solid var(--line);
       }
 
       footer {
-        margin-top: 18px;
+        margin-top: 28px;
         color: var(--muted);
         font-size: 14px;
-        text-align: center;
       }
 
       @media (max-width: 860px) {
-        .hero-grid,
-        .cert-grid {
+        .grid {
           grid-template-columns: 1fr;
-        }
-
-        .section {
-          border-radius: 22px;
-          padding: 20px;
         }
       }
     </style>
   </head>
 
   <body>
-    <div class="bg-orb one"></div>
-    <div class="bg-orb two"></div>
-
     <div class="wrap">
-      <header class="nav-shell">
-        <nav class="nav" aria-label="Primary">
-          <a href="#about" class="active">About</a>
-          <a href="#achievements">Achievements</a>
-          <a href="#certifications">Certifications</a>
-          <a href="https://nexbi.works" rel="noopener">NEXBI</a>
-        </nav>
+      <header class="topbar">
+        <div class="brand">shibist.me</div>
+        <a class="site-link" href="https://nexbi.works" rel="noopener">Visit NEXBI</a>
       </header>
 
       <main>
-        <section class="section" id="about" aria-label="About Shibi S T">
-          <div class="hero-grid">
-            <article class="intro">
-              <div class="eyebrow">About Me</div>
-              <h1>
-                <span class="font-display">Hey, I'm</span>
-                <br />
-                <span class="font-display">Shibi S T</span>
-              </h1>
-              <p class="lead">
-                Mechanical Design Engineer focused on CAD modeling, product development, and engineering simulation.
-              </p>
-              <p>
-                I am a third-year Mechanical Engineering student at K.S. Rangasamy College of Technology with a CGPA
-                of 9.45 (up to 5th semester). My passion is building practical designs that are both detailed and
-                manufacturable.
-              </p>
-              <p>
-                With hands-on expertise in Siemens NX, Autodesk Inventor, Fusion 360, and ANSYS Workbench, I work on
-                precision 3D modeling, assembly design, drafting, and finite element analysis.
-              </p>
-              <p>
-                Active member of SAEINDIA Southern Section and SPARKS Association. I have participated and won in
-                state and national-level engineering design competitions.
-              </p>
-            </article>
-
-            <aside class="meta">
-              <article class="meta-card">
-                <h3>Education</h3>
-                <p><strong>B.E Mechanical Engineering</strong></p>
-                <p>K.S. Rangasamy College of Technology</p>
-                <p>2023-2027 · CGPA: 9.45</p>
-              </article>
-              <article class="meta-card">
-                <h3>Contact</h3>
-                <p><a href="mailto:shibi.s.t2006@gmail.com">shibi.s.t2006@gmail.com</a></p>
-                <p><a href="https://www.linkedin.com/in/shibi-s-t-" rel="noopener">LinkedIn Profile</a></p>
-              </article>
-              <article class="meta-card">
-                <h3>Work</h3>
-                <p><a href="https://nexbi.works" rel="noopener">View Services on nexbi.works</a></p>
-              </article>
-            </aside>
-          </div>
+        <section class="hero" id="about">
+          <h1>Shibi S T</h1>
+          <p class="subtitle">Mechanical Design Engineer focused on CAD, product design, and engineering simulation.</p>
         </section>
 
-        <section class="section" id="achievements" aria-label="Awards and recognition">
-          <div class="eyebrow">Achievements</div>
-          <h2>
-            Awards and <span class="font-display">Recognition</span>
-          </h2>
-          <div class="stack">
-            <article class="achievement">
-              <span class="badge">01</span>
-              <p>Silver Medal - TN Skills State-Level (Mechanical Engineering CAD) - INR 10,000 award.</p>
-            </article>
-            <article class="achievement">
-              <span class="badge">02</span>
-              <p>Bronze Medal - IndiaSkills Southern Region 2025-26 (Mechanical Engineering CAD) - INR 25,000 award.</p>
-            </article>
-            <article class="achievement">
-              <span class="badge">03</span>
-              <p>Finalist (Top 15) - India Design Week 2026 (ICT Academy Hackathon), 24-hour Fusion 360 challenge.</p>
-            </article>
-            <article class="achievement">
-              <span class="badge">04</span>
-              <p>3rd Prize - National Level Engineering Design (SAEINDIA Chennai).</p>
-            </article>
-            <article class="achievement">
-              <span class="badge">05</span>
-              <p>Best Presentation Award - National Level FEA (SAEINDIA Chennai).</p>
-            </article>
-          </div>
-        </section>
+        <section class="grid" aria-label="Profile and achievements">
+          <article class="card">
+            <h2>About</h2>
+            <p>
+              I am a third-year Mechanical Engineering student at K.S. Rangasamy College of Technology
+              with a CGPA of 9.45 (up to 5th semester). My focus is design engineering and product development.
+            </p>
+            <p>
+              I work across Siemens NX, Autodesk Inventor, Fusion 360, and ANSYS to deliver production-aware
+              modeling, assemblies, drafting, and simulation.
+            </p>
+            <p>
+              I actively participate in engineering competitions and technical communities including SAEINDIA.
+            </p>
+            <div class="actions">
+              <a class="btn primary" href="mailto:shibi.s.t2006@gmail.com">Email Me</a>
+              <a class="btn ghost" href="https://www.linkedin.com/in/shibi-s-t-" rel="noopener">LinkedIn</a>
+              <a class="btn ghost" href="https://nexbi.works" rel="noopener">Services at NEXBI</a>
+            </div>
+          </article>
 
-        <section class="section" id="certifications" aria-label="Certifications">
-          <div class="eyebrow">Certifications</div>
-          <h2>
-            Certified <span class="font-display">Skills</span>
-          </h2>
-          <div class="cert-grid">
-            <article class="cert"><p>NPTEL - Innovation by Design</p></article>
-            <article class="cert"><p>NPTEL - Product Design and Development</p></article>
-            <article class="cert"><p>NPTEL - Product Design and Manufacturing</p></article>
-            <article class="cert"><p>NPTEL - Rapid Manufacturing</p></article>
-            <article class="cert"><p>Siemens NX CAD - RAA Associates PVT Limited</p></article>
-            <article class="cert"><p>Engineering Design - SAEINDIA Chennai</p></article>
-            <article class="cert"><p>Finite Element Analysis - SAEINDIA Chennai</p></article>
-          </div>
-        </section>
+          <article class="card" id="achievements">
+            <h2>Key Achievements</h2>
+            <ul>
+              <li>Silver Medal - TN Skills State-Level (Mechanical Engineering CAD)</li>
+              <li>Bronze Medal - IndiaSkills Southern Region 2025-26 (Mechanical Engineering CAD)</li>
+              <li>Finalist (Top 15) - India Design Week 2026, 24-hour Fusion 360 challenge</li>
+              <li>3rd Prize - National Level Engineering Design (SAEINDIA Chennai)</li>
+              <li>Best Presentation Award - National Level FEA (SAEINDIA Chennai)</li>
+            </ul>
+          </article>
 
-        <section class="section cta" aria-label="Call to action">
-          <a href="https://nexbi.works" rel="noopener">Visit NEXBI Services</a>
+          <article class="card" id="certifications">
+            <h2>Certifications</h2>
+            <ul>
+              <li>NPTEL - Innovation by Design</li>
+              <li>NPTEL - Product Design and Development</li>
+              <li>NPTEL - Product Design and Manufacturing</li>
+              <li>NPTEL - Rapid Manufacturing</li>
+              <li>Siemens NX CAD - RAA Associates PVT Limited</li>
+              <li>Engineering Design - SAEINDIA Chennai</li>
+              <li>Finite Element Analysis - SAEINDIA Chennai</li>
+            </ul>
+          </article>
+
+          <article class="card" id="education">
+            <h2>Education and Contact</h2>
+            <p><strong>B.E Mechanical Engineering</strong><br />K.S. Rangasamy College of Technology<br />2023-2027</p>
+            <p>Email: <a href="mailto:shibi.s.t2006@gmail.com">shibi.s.t2006@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/shibi-s-t-" rel="noopener">/in/shibi-s-t-</a></p>
+          </article>
         </section>
       </main>
 
       <footer>
-        <p>
-          Personal profile website of Shibi S T. For CAD services and project inquiries, visit
-          <a href="https://nexbi.works" rel="noopener"> nexbi.works</a>.
-        </p>
+        <p>Personal profile website of Shibi S T. For services and project inquiries, visit <a href="https://nexbi.works" rel="noopener">nexbi.works</a>.</p>
       </footer>
     </div>
   </body>
